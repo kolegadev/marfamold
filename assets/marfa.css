@@ -153,6 +153,23 @@ footer{border-top:1px solid var(--line);padding:30px 0 36px;color:var(--ink-soft
   .collage{grid-template-columns:1fr 1fr}
   .collage .t1{grid-column:1 / -1;grid-row:auto;aspect-ratio:4/4}
 }
+/* A phone in landscape is wide enough for the original side-by-side hero.
+   Without this override the generic tablet rule stacks the collage after the
+   copy and makes its first pixel land below a 390px-tall viewport, which looks
+   exactly like the hero failed to load even though all three JPEGs are loaded. */
+@media (max-width:900px) and (orientation:landscape) and (max-height:500px){
+  .hero{padding-top:24px;padding-bottom:28px}
+  .hero-in{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:24px}
+  .hero h1{font-size:clamp(27px,3.7vw,32px);margin-block:12px 10px}
+  .hero p.lead{font-size:16px;line-height:1.55;margin-bottom:18px}
+  .btn-lg{padding:14px 22px;font-size:14px}
+  .collage{grid-template-columns:1.06fr .94fr;gap:10px}
+  .collage .t1{grid-column:auto;grid-row:1 / span 2;aspect-ratio:auto}
+  .collage .t2,.collage .t3{aspect-ratio:5/4}
+  .collage .t1 img{object-position:50% 48%}
+  .collage .t2 img{object-position:50% 45%}
+  .collage .t3 img{object-position:58% 45%}
+}
 @media (max-width:560px){
   .grid{grid-template-columns:repeat(2,1fr);gap:12px}
   .p-body{padding:10px 10px 12px}
