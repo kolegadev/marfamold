@@ -1,0 +1,163 @@
+/* MarfaMold demo — shared styles. Brand font (Comfortaa), colours and
+   layout follow marfa-mold.ru / marfamold.ru; no Sweet Moments assets. */
+@font-face { font-family:'Comfortaa'; font-style:normal; font-weight:400; font-display:swap;
+  src:url('fonts/comfortaa-400-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family:'Comfortaa'; font-style:normal; font-weight:400; font-display:swap;
+  src:url('fonts/comfortaa-400-cyrillic.woff2') format('woff2');
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+@font-face { font-family:'Comfortaa'; font-style:normal; font-weight:600; font-display:swap;
+  src:url('fonts/comfortaa-600-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family:'Comfortaa'; font-style:normal; font-weight:600; font-display:swap;
+  src:url('fonts/comfortaa-600-cyrillic.woff2') format('woff2');
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+@font-face { font-family:'Comfortaa'; font-style:normal; font-weight:700; font-display:swap;
+  src:url('fonts/comfortaa-700-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family:'Comfortaa'; font-style:normal; font-weight:700; font-display:swap;
+  src:url('fonts/comfortaa-700-cyrillic.woff2') format('woff2');
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+
+:root{
+  --paper:#f6f4ee; --card:#ffffff; --ink:#14293f; --ink-soft:#5d6d7e;
+  --blue:#2c74ac; --blue-deep:#10207f; --line:rgba(20,41,63,.12);
+  --grad:linear-gradient(0.5turn,#2c74ac 0%,#10207f 100%);
+  --radius:16px;
+  --top-h:67px;          /* sticky header height: first-screen maths */
+  --display:'Comfortaa',system-ui,sans-serif;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 var(--sans)}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+
+/* ---- header ---- */
+.top{position:sticky;top:0;z-index:10;background:rgba(246,244,238,.92);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;gap:14px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand img{width:42px;height:42px}
+.brand b{font:700 19px/1 var(--display);letter-spacing:.01em}
+.top nav{margin-left:auto;display:flex;gap:26px}
+.top nav a{font:600 14px/1 var(--display);text-decoration:none;color:var(--ink)}
+.top nav a:hover{color:var(--blue)}
+.lang{display:flex;align-items:center;gap:2px;border:1px solid var(--line);
+  border-radius:999px;padding:3px;background:#fff}
+.top .lang{margin-left:auto}
+.top nav + .lang{margin-left:0}
+.lang a{font:600 12px/1 var(--display);padding:7px 10px;border-radius:999px;
+  text-decoration:none;color:var(--ink-soft)}
+.lang a:hover{color:var(--blue)}
+.lang a.on{background:var(--grad);color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:13px 22px;border-radius:12px;font:700 14px/1 var(--display);text-decoration:none;
+  border:1px solid transparent;cursor:pointer;white-space:nowrap}
+.btn-grad{background:var(--grad);color:#fff;box-shadow:0 10px 24px rgba(16,32,127,.22)}
+.btn-lg{padding:17px 30px;font-size:15.5px;border-radius:14px}
+
+/* ---- hero ---- */
+.hero{padding-top:54px;padding-bottom:40px}
+.hero-in{display:grid;grid-template-columns:1.02fr .98fr;gap:46px;align-items:center}
+.kicker{font:600 12px/1 var(--display);letter-spacing:.24em;text-transform:uppercase;color:var(--blue)}
+.hero h1{margin:16px 0 14px;font:700 clamp(30px,4.1vw,50px)/1.16 var(--display);letter-spacing:-.01em}
+.hero p.lead{margin:0 0 26px;font-size:18px;color:var(--ink-soft);max-width:46ch}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+
+/* ---- hero collage: three photos from the original shop hero ---- */
+.collage{display:grid;grid-template-columns:1.06fr .94fr;gap:14px;align-items:stretch}
+.collage .tile{border-radius:calc(var(--radius) + 4px);overflow:hidden;background:#fff;
+  box-shadow:0 20px 48px rgba(20,41,63,.16)}
+.collage .t1{grid-row:1 / span 2}
+.collage img{width:100%;height:100%;object-fit:cover}
+.collage .t2,.collage .t3{aspect-ratio:5/4}
+
+/* ---- claims strip ---- */
+.claims{border-block:1px solid var(--line);background:#fff}
+.claims .wrap{display:flex;flex-wrap:wrap;gap:10px 34px;justify-content:center;padding-block:16px}
+.claims span{font:600 12px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* ---- sections ---- */
+section{padding:64px 0}
+h2{margin:0 0 10px;font:700 clamp(24px,2.6vw,34px)/1.2 var(--display)}
+.sub{margin:0 0 34px;color:var(--ink-soft);max-width:62ch}
+
+/* ---- product grid ---- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:20px}
+.p{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  display:flex;flex-direction:column}
+.p-img{aspect-ratio:4/5;background:#fff;position:relative}
+.p-img img{width:100%;height:100%;object-fit:cover}
+.p-badge{position:absolute;top:10px;left:10px;padding:5px 10px;border-radius:999px;
+  background:var(--grad);color:#fff;font:700 10px/1 var(--display);letter-spacing:.12em}
+.p-body{padding:14px 14px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.p-name{font:600 14px/1.35 var(--display);min-height:2.7em}
+.p-price{font:700 15px/1 var(--sans);margin-top:auto}
+.p-price s{color:var(--ink-soft);font-weight:400;margin-left:8px;font-size:13px}
+.p-ask{font-weight:400;font-size:13px;color:var(--ink-soft);letter-spacing:.01em}
+.note{margin-top:26px;color:var(--ink-soft);font-size:14px;max-width:70ch}
+
+/* ---- about ---- */
+.about-in{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:start}
+.about-in p{margin:0 0 14px;color:var(--ink-soft);max-width:52ch}
+.facts{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 22px 10px}
+.facts li{list-style:none;margin:0 0 14px;padding-left:26px;position:relative;font-size:15px}
+.facts li::before{content:"";position:absolute;left:0;top:6px;width:12px;height:12px;border-radius:50%;
+  background:var(--grad)}
+.facts ul{margin:0;padding:0}
+
+/* ---- contact ---- */
+.contact{background:var(--grad);color:#fff;border-radius:calc(var(--radius) + 10px);padding:44px 34px;text-align:center}
+.contact h2{color:#fff}
+.contact p{color:rgba(255,255,255,.85);max-width:52ch;margin:0 auto 24px}
+.contact .based{font:600 12px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.85);margin:22px auto 0}
+.contact .btn{background:#fff;color:var(--blue-deep)}
+.socials{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:18px}
+.socials a{color:#fff;text-decoration:none;font:600 13px/1 var(--display);
+  border:1px solid rgba(255,255,255,.45);border-radius:999px;padding:9px 14px}
+.socials a:hover{background:rgba(255,255,255,.14)}
+
+/* ---- footer ---- */
+footer{border-top:1px solid var(--line);padding:30px 0 36px;color:var(--ink-soft);font-size:13px}
+.foot-in{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:baseline;justify-content:space-between}
+
+/* ---- first screen: on desktop the hero and the benefits strip fill the whole
+   first viewport, so the Flower Moulds section only begins after a scroll
+   (Natalia, 2026-10-02). The height comes from the viewport and the air from
+   the padding; the photographs keep their own proportions. ---- */
+@media (min-width:901px){
+  .first-screen{display:flex;flex-direction:column;min-height:calc(100vh - var(--top-h))}
+  .first-screen .hero{flex:1 1 auto;display:flex;flex-direction:column;
+    justify-content:center;padding-block:clamp(24px,4.4vh,68px)}
+  .first-screen .claims{flex:0 0 auto}
+}
+/* taller screens: scale the hero composition up a step at a time, so the extra
+   height is shared between the photographs and the air (never stretched) */
+@media (min-width:901px) and (min-height:1000px){
+  .hero{max-width:1300px}
+  .hero-in{grid-template-columns:.95fr 1.05fr}
+}
+@media (min-width:901px) and (min-height:1200px){
+  .hero{max-width:1440px}
+  .hero-in{grid-template-columns:.9fr 1.1fr}
+}
+
+@media (max-width:900px){
+  .hero-in,.about-in{grid-template-columns:1fr;gap:28px}
+  .top nav{display:none}
+  .hero{padding-top:34px}
+  .collage{grid-template-columns:1fr 1fr}
+  .collage .t1{grid-column:1 / -1;grid-row:auto;aspect-ratio:4/4}
+}
+@media (max-width:560px){
+  .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .p-body{padding:10px 10px 12px}
+  .p-name{font-size:12.5px}
+  .btn{padding:12px 16px}
+  .top .btn-grad{display:none}
+  .lang a{padding:7px 8px}
+}
